@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Olivia Pal, CS PhD student at UIUC studying digital wellbeing and human-AI interaction.">
+<title>Olivia Pal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root {
+  /* Core */
+  --white:     #ffffff;
+  --ink:       #1a1a1a;
+  --mid:       #4a4a4a;
+  --soft:      #909090;
+  --rule:      #e8e8e4;
+  --ease:      cubic-bezier(0.22,1,0.36,1);
+
+  /* Sage green palette */
+  --sage:      #6b8f71;
+  --sage-dark: #3d5c42;
+  --sage-mid:  #8aab90;
+  --sage-pale: #eaf2eb;
+  --sage-wash: #f2f7f3;
+
+  /* Amber accent */
+  --amber:     #c06a1e;
+  --amber-pale:#fdf0e6;
+
+  /* Status colors */
+  --blue:      #3559a6;
+  --blue-pale: #eaeffa;
+  --rose:      #b84d6e;
+  --rose-pale: #faedf2;
+  --teal:      #2a7d6f;
+  --teal-pale: #e4f4f1;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 15.5px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+}
+.reveal.in { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 0.07s; }
+.d2 { transition-delay: 0.14s; }
+.d3 { transition-delay: 0.21s; }
+.d4 { transition-delay: 0.28s; }
+.d5 { transition-delay: 0.35s; }
+.d6 { transition-delay: 0.42s; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 99;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--rule);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
+.nav-inner {
+  max-width: 880px; margin: 0 auto;
+  padding: 0 2.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 54px;
+}
+.nav-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.82rem; color: var(--ink);
+  text-decoration: none; letter-spacing: 0.04em;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.nav-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--sage); flex-shrink: 0;
+  animation: pulse-dot 3s ease-in-out infinite;
+}
+@keyframes pulse-dot {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.7); }
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.71rem; color: var(--soft);
+  text-decoration: none; letter-spacing: 0.06em;
+  transition: color 0.2s; position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; left: 0; bottom: -2px;
+  width: 0; height: 1.5px; background: var(--sage);
+  transition: width 0.25s var(--ease);
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after { width: 100%; }
+
+/* HERO */
+.hero-wrap {
+  background: linear-gradient(160deg, var(--sage-wash) 0%, var(--white) 55%);
+  border-bottom: 1px solid var(--rule);
+}
+.hero {
+  max-width: 880px; margin: 0 auto;
+  padding: 5.5rem 2.5rem 4.5rem;
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 3rem; align-items: start;
+}
+.hero-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem; color: var(--sage);
+  letter-spacing: 0.12em; margin-bottom: 1.1rem;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.hero-eyebrow::before {
+  content: ''; display: inline-block;
+  width: 24px; height: 1.5px; background: var(--sage);
+}
+.hero-name {
+  font-family: 'Newsreader', serif;
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-weight: 300; line-height: 1.05;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+.hero-name span {
+  color: var(--sage-dark);
+  border-bottom: 2px solid var(--sage-mid);
+  padding-bottom: 2px;
+}
+.hero-bio {
+  font-size: 0.97rem; color: var(--mid);
+  line-height: 1.9; max-width: 510px;
+  margin-bottom: 2rem;
+}
+.hero-bio a { color: var(--sage-dark); text-underline-offset: 3px; font-weight: 500; }
+.social-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.slink {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.71rem; color: var(--mid);
+  text-decoration: none;
+  border: 1px solid var(--rule);
+  padding: 0.35rem 0.85rem; border-radius: 20px;
+  transition: all 0.2s var(--ease);
+  background: var(--white);
+}
+.slink:hover {
+  background: var(--sage-dark); color: var(--white);
+  border-color: var(--sage-dark); transform: translateY(-1px);
+}
+.slink.primary {
+  background: var(--sage); color: var(--white);
+  border-color: var(--sage);
+}
+.slink.primary:hover { background: var(--sage-dark); border-color: var(--sage-dark); }
+
+.avatar {
+  width: 200px; height: 200px; border-radius: 50%;
+  background: var(--sage-pale);
+  border: 3px solid var(--sage-mid);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Newsreader', serif;
+  font-size: 3.6rem; font-weight: 300; color: var(--sage-dark);
+  flex-shrink: 0;
+  transition: transform 0.45s var(--ease), box-shadow 0.45s var(--ease);
+  position: relative; overflow: hidden;
+}
+.avatar:hover {
+  transform: scale(1.04);
+  box-shadow: 0 12px 40px rgba(107,143,113,0.25);
+}
+
+/* AFFIL STRIP */
+.affil-strip {
+  border-bottom: 1px solid var(--rule);
+  padding: 0;
+  background: var(--white);
+  overflow: hidden;
+}
+.affil-inner {
+  max-width: 880px; margin: 0 auto;
+  padding: 0 2.5rem;
+  display: flex; gap: 0; align-items: stretch;
+  overflow-x: auto; scrollbar-width: none;
+}
+.affil-inner::-webkit-scrollbar { display: none; }
+.affil-item {
+  display: flex; flex-direction: column;
+  gap: 0.15rem; flex-shrink: 0;
+  padding: 1.4rem 2rem;
+  border-right: 1px solid var(--rule);
+  border-left: 3px solid transparent;
+  transition: border-left-color 0.2s, background 0.2s;
+  cursor: default;
+}
+.affil-item:hover { border-left-color: var(--sage); background: var(--sage-wash); }
+.affil-item:first-child { padding-left: 0; border-left: none; }
+.affil-item:last-child { border-right: none; }
+.affil-role {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.63rem; color: var(--soft);
+  letter-spacing: 0.07em;
+}
+.affil-org { font-size: 0.88rem; font-weight: 500; color: var(--ink); }
+.affil-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem; color: var(--sage);
+}
+
+/* MAIN */
+.main { max-width: 880px; margin: 0 auto; padding: 0 2.5rem 6rem; }
+
+/* SECTIONS */
+.sec { padding: 3.75rem 0; border-bottom: 1px solid var(--rule); }
+.sec:last-child { border-bottom: none; }
+.sec-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.25rem; }
+.sec-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem; color: var(--sage-dark);
+  letter-spacing: 0.14em; white-space: nowrap;
+  text-transform: lowercase;
+}
+.sec-rule { flex: 1; height: 1px; background: var(--rule); }
+
+/* ABOUT */
+.about-grid { display: grid; grid-template-columns: 1fr 220px; gap: 3rem; align-items: start; }
+.about-text { font-size: 0.96rem; color: var(--mid); line-height: 1.9; }
+.about-text p + p { margin-top: 1rem; }
+.about-text a { color: var(--sage-dark); text-underline-offset: 3px; font-weight: 500; }
+.about-text strong { color: var(--ink); }
+.interests { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.int-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.03em;
+  padding: 0.28rem 0.75rem; border-radius: 20px;
+  transition: all 0.18s; cursor: default;
+  border: 1.5px solid;
+}
+.int-tag.green  { color: var(--sage-dark); border-color: var(--sage-mid); background: var(--sage-pale); }
+.int-tag.amber  { color: var(--amber); border-color: #e0a06a; background: var(--amber-pale); }
+.int-tag.blue   { color: var(--blue); border-color: #8aaae0; background: var(--blue-pale); }
+.int-tag.rose   { color: var(--rose); border-color: #d490aa; background: var(--rose-pale); }
+.int-tag.teal   { color: var(--teal); border-color: #7abdb4; background: var(--teal-pale); }
+.int-tag:hover  { transform: translateY(-1px); filter: brightness(0.94); }
+
+.stat-card {
+  background: var(--sage-pale);
+  border: 1.5px solid var(--sage-mid);
+  border-radius: 14px;
+  padding: 1.5rem;
+  display: flex; flex-direction: column; gap: 1rem;
+}
+.stat-item {}
+.stat-num {
+  font-family: 'Newsreader', serif;
+  font-size: 2.2rem; font-weight: 300;
+  color: var(--sage-dark); line-height: 1;
+}
+.stat-lbl {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem; color: var(--sage);
+  letter-spacing: 0.07em; margin-top: 0.2rem;
+}
+.stat-div { height: 1px; background: var(--sage-mid); opacity: 0.3; }
+
+/* NEWS */
+.news-list { display: flex; flex-direction: column; }
+.news-item {
+  display: grid; grid-template-columns: 88px 1fr;
+  padding: 0.95rem 0.75rem;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 6px;
+  align-items: baseline;
+  transition: background 0.15s;
+  margin: 0 -0.75rem;
+}
+.news-item:last-child { border-bottom: none; }
+.news-item:hover { background: var(--sage-wash); }
+.news-dt {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem; color: var(--soft);
+  letter-spacing: 0.04em; padding-top: 0.05rem;
+}
+.news-body { font-size: 0.9rem; color: var(--mid); line-height: 1.7; }
+.news-body strong { color: var(--ink); font-weight: 500; }
+.news-body a { color: var(--sage-dark); text-underline-offset: 3px; }
+.badge {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem; letter-spacing: 0.06em;
+  padding: 0.1rem 0.5rem; border-radius: 20px;
+  vertical-align: middle; margin-left: 0.4rem; font-weight: 500;
+}
+.badge-new   { background: var(--sage-pale); color: var(--sage-dark); }
+.badge-pub   { background: var(--teal-pale); color: var(--teal); }
+
+/* PUBLICATIONS */
+.pub-filters {
+  display: flex; gap: 0.4rem; margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.pf-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem; letter-spacing: 0.05em;
+  padding: 0.28rem 0.75rem; border-radius: 20px;
+  border: 1.5px solid var(--rule);
+  background: none; color: var(--soft);
+  cursor: pointer; transition: all 0.18s;
+}
+.pf-btn:hover, .pf-btn.active {
+  background: var(--sage-pale);
+  border-color: var(--sage-mid);
+  color: var(--sage-dark);
+}
+.pub-list { display: flex; flex-direction: column; }
+.pub {
+  display: grid; grid-template-columns: 48px 1fr;
+  padding: 1.4rem 0.75rem;
+  border-bottom: 1px solid var(--rule);
+  border-radius: 8px;
+  transition: background 0.18s;
+  margin: 0 -0.75rem;
+  cursor: default;
+}
+.pub:last-child { border-bottom: none; }
+.pub:hover { background: var(--sage-wash); }
+.pub.hidden { display: none; }
+.pub-yr {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.67rem; color: var(--soft);
+  padding-top: 0.2rem; letter-spacing: 0.04em;
+}
+.pub-title {
+  font-family: 'Newsreader', serif;
+  font-size: 1rem; font-weight: 400; font-style: italic;
+  color: var(--ink); line-height: 1.45; margin-bottom: 0.3rem;
+}
+.pub-authors { font-size: 0.81rem; color: var(--soft); margin-bottom: 0.25rem; line-height: 1.5; }
+.pub-authors strong { color: var(--mid); font-weight: 500; }
+.pub-venue { font-size: 0.82rem; color: var(--mid); font-weight: 500; margin-bottom: 0.45rem; }
+.vtag {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem; letter-spacing: 0.05em;
+  padding: 0.12rem 0.48rem; border-radius: 20px;
+  margin-left: 0.4rem; vertical-align: middle; font-weight: 500;
+}
+.vtag-review { background: var(--rose-pale); color: var(--rose); }
+.vtag-pub    { background: var(--teal-pale); color: var(--teal); }
+.vtag-poster { background: var(--amber-pale); color: var(--amber); }
+.vtag-preprint { background: var(--blue-pale); color: var(--blue); }
+.pub-links { display: flex; gap: 0.8rem; }
+.pub-links a {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.67rem; color: var(--sage-dark);
+  text-decoration: none; letter-spacing: 0.03em;
+  transition: opacity 0.15s;
+}
+.pub-links a:hover { opacity: 0.65; text-decoration: underline; }
+
+/* EXPERIENCE */
+.exp-list { display: flex; flex-direction: column; }
+.exp-item { border-bottom: 1px solid var(--rule); overflow: hidden; }
+.exp-item:last-child { border-bottom: none; }
+.exp-trigger {
+  display: grid;
+  grid-template-columns: 48px auto 1fr auto;
+  align-items: center; gap: 0 1rem;
+  padding: 1.3rem 0.75rem;
+  cursor: pointer; background: none; border: none;
+  width: 100%; text-align: left;
+  border-radius: 8px;
+  transition: background 0.15s;
+  margin: 0 -0.75rem; width: calc(100% + 1.5rem);
+}
+.exp-trigger:hover { background: var(--sage-wash); }
+.exp-yr {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.67rem; color: var(--soft);
+  letter-spacing: 0.04em; white-space: nowrap;
+}
+.exp-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--sage-mid); flex-shrink: 0;
+  transition: background 0.2s;
+}
+.exp-item.open .exp-dot { background: var(--sage-dark); }
+.exp-main {}
+.exp-role { font-size: 0.96rem; font-weight: 500; color: var(--ink); }
+.exp-org { font-size: 0.84rem; color: var(--sage-dark); margin-top: 0.1rem; font-weight: 500; }
+.exp-chevron {
+  color: var(--soft); transition: transform 0.35s var(--ease);
+  flex-shrink: 0;
+}
+.exp-item.open .exp-chevron { transform: rotate(180deg); }
+.exp-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.45s var(--ease), padding 0.3s;
+  padding: 0 0.75rem 0 calc(0.75rem + 48px + 1rem + 8px + 1rem);
+}
+.exp-item.open .exp-body { max-height: 400px; padding-bottom: 1.4rem; }
+.exp-desc { font-size: 0.87rem; color: var(--mid); line-height: 1.8; }
+.exp-desc ul { list-style: none; padding: 0; }
+.exp-desc ul li { padding-left: 1.2rem; position: relative; margin-bottom: 0.3rem; }
+.exp-desc ul li::before {
+  content: '';
+  position: absolute; left: 0; top: 0.65em;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--sage-mid);
+}
+
+/* SKILLS */
+.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.sk-group {
+  background: var(--white);
+  border: 1.5px solid var(--rule);
+  border-radius: 12px;
+  padding: 1.25rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.sk-group:hover { border-color: var(--sage-mid); background: var(--sage-wash); }
+.sk-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem; color: var(--sage-dark);
+  letter-spacing: 0.09em; margin-bottom: 0.85rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.sk-label::before {
+  content: ''; width: 16px; height: 2px; background: var(--sage-mid);
+}
+.sk-tags { display: flex; flex-direction: column; gap: 0.35rem; }
+.sk-tag {
+  font-size: 0.85rem; color: var(--mid);
+  padding: 0.2rem 0;
+  border-bottom: 1px solid transparent;
+  transition: color 0.15s, border-color 0.15s;
+}
+.sk-tag:hover { color: var(--ink); border-color: var(--sage-pale); }
+
+/* CONTACT */
+.contact-wrap {
+  background: var(--sage-pale);
+  border-radius: 16px;
+  padding: 2.5rem;
+  border: 1.5px solid var(--sage-mid);
+}
+.contact-bio { font-size: 0.95rem; color: var(--mid); line-height: 1.85; margin-bottom: 1.5rem; }
+.contact-links { display: flex; flex-wrap: wrap; gap: 0.65rem; }
+.clink {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.71rem; color: var(--sage-dark);
+  text-decoration: none;
+  border: 1.5px solid var(--sage-mid);
+  padding: 0.5rem 1.1rem; border-radius: 20px;
+  display: flex; align-items: center; gap: 0.45rem;
+  transition: all 0.2s var(--ease);
+  background: var(--white);
+}
+.clink:hover {
+  background: var(--sage-dark); color: var(--white);
+  border-color: var(--sage-dark); transform: translateY(-1px);
+}
+.clink.primary {
+  background: var(--sage-dark); color: var(--white);
+  border-color: var(--sage-dark);
+}
+.clink.primary:hover { background: var(--ink); border-color: var(--ink); }
+
+/* BEYOND RESEARCH */
+.beyond-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.beyond-card {
+  background: var(--white);
+  border: 1.5px solid var(--rule);
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s var(--ease);
+}
+.beyond-card:hover {
+  border-color: var(--sage-mid);
+  background: var(--sage-wash);
+  transform: translateY(-2px);
+}
+.beyond-icon {
+  width: 40px; height: 40px;
+  background: var(--sage-pale);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1rem;
+  color: var(--sage-dark);
+}
+.beyond-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem; color: var(--sage-dark);
+  letter-spacing: 0.1em; margin-bottom: 0.5rem;
+}
+.beyond-desc {
+  font-size: 0.875rem; color: var(--mid);
+  line-height: 1.7;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--rule);
+  text-align: center; padding: 2rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem; color: var(--soft);
+  letter-spacing: 0.04em;
+}
+footer span { color: var(--sage); }
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem 2.5rem; }
+  .avatar { width: 120px; height: 120px; font-size: 2.4rem; order: -1; }
+  .hero-name { font-size: 2.6rem; }
+  .nav-links { display: none; }
+  .about-grid { grid-template-columns: 1fr; }
+  .stat-card { flex-direction: row; flex-wrap: wrap; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .beyond-grid { grid-template-columns: 1fr; }
+  .main { padding: 0 1.5rem 4rem; }
+  .news-item { grid-template-columns: 72px 1fr; }
+  .contact-wrap { padding: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-name">
+      <span class="nav-dot"></span>
+      olivia pal
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">about</a></li>
+      <li><a href="#news">news</a></li>
+      <li><a href="#publications">publications</a></li>
+      <li><a href="#experience">experience</a></li>
+      <li><a href="#beyond">beyond</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-wrap">
+  <div class="hero">
+    <div>
+      <p class="hero-eyebrow reveal">phd student · computer science · uiuc</p>
+      <h1 class="hero-name reveal d1">Olivia Pal</h1>
+      <p class="hero-bio reveal d2">
+        Hey! I'm Olivia, a first-year CS PhD student at the
+        <a href="https://cs.illinois.edu/">University of Illinois Urbana-Champaign</a>,
+        working with <a href="https://koustuv.com/">Prof. Koustuv Saha</a>
+        in the <a href="https://oncare.cs.illinois.edu">OnCARE Lab</a>.
+        Currently visiting <a href="https://www.aalto.fi/">Aalto University</a> as a research intern.
+        <br><br>
+        I study digital wellbeing and human-AI interaction, using causal inference,
+        NLP, and qualitative methods to understand how social media and AI shape mental
+        health and trust, and to build tools that help people use technology more intentionally.
+      </p>
+      <div class="social-row reveal d3">
+        <a href="mailto:opal2@illinois.edu" class="slink primary">email</a>
+        <a href="https://scholar.google.com/citations?user=HpQNmoYAAAAJ&hl=en" target="_blank" class="slink">scholar</a>
+        <a href="https://github.com/oliviapal" target="_blank" class="slink">github</a>
+        <a href="https://www.linkedin.com/in/olivia-pal" target="_blank" class="slink">linkedin</a>
+        <a href="Olivia_Pal_CV.pdf" class="slink">cv</a>
+      </div>
+    </div>
+    <div class="avatar reveal d2">
+      <img src="photo.jpg" alt="Olivia Pal" style="width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%;">
+    </div>
+  </div>
+</div>
+
+<!-- AFFIL STRIP -->
+<div class="affil-strip">
+  <div class="affil-inner">
+    <div class="affil-item reveal d1">
+      <span class="affil-role">Ph.D. Student, Computer Science</span>
+      <span class="affil-org">UIUC</span>
+      <span class="affil-date">Aug 2025 — present</span>
+    </div>
+    <div class="affil-item reveal d2">
+      <span class="affil-role">Research Intern</span>
+      <span class="affil-org">Aalto University</span>
+      <span class="affil-date">May 2026 — present</span>
+    </div>
+    <div class="affil-item reveal d3">
+      <span class="affil-role">Research Intern</span>
+      <span class="affil-org">Trinity College Dublin</span>
+      <span class="affil-date">May 2024 — Jul 2024</span>
+    </div>
+    <div class="affil-item reveal d4">
+      <span class="affil-role">Research Intern</span>
+      <span class="affil-org">IIT Kharagpur</span>
+      <span class="affil-date">May 2022 — Apr 2024</span>
+    </div>
+    <div class="affil-item reveal d5">
+      <span class="affil-role">B.S. Computer Science</span>
+      <span class="affil-org">Michigan State University</span>
+      <span class="affil-date">May 2025</span>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- ABOUT -->
+  <section class="sec" id="about">
+    <div class="sec-header reveal">
+      <span class="sec-label">about</span>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="about-text reveal d1">
+      <p>My research sits at the intersection of computational social science and human-computer interaction. I'm broadly interested in how online platforms affect people's mental health, and how AI systems shape the way people form trust and make decisions.</p>
+      <p>On the methods side, I work with large-scale observational data using propensity score matching and longitudinal modeling, and run qualitative studies through semi-structured interviews and think-aloud protocols. Before my PhD, I studied computer science and cognitive science at Michigan State, and did research internships at Trinity College Dublin (quantum computing) and IIT Kharagpur (EEG-based classification for manufacturing).</p>
+    </div>
+    <div class="interests reveal d2">
+      <span class="int-tag green">digital wellbeing</span>
+      <span class="int-tag blue">human-AI interaction</span>
+      <span class="int-tag teal">causal inference</span>
+      <span class="int-tag rose">comp. social science</span>
+      <span class="int-tag amber">NLP</span>
+      <span class="int-tag green">AI trust</span>
+      <span class="int-tag blue">qualitative methods</span>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section class="sec" id="news">
+    <div class="sec-header reveal">
+      <span class="sec-label">news</span>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="news-list">
+      <div class="news-item reveal d1">
+        <span class="news-dt">jun 2026</span>
+        <span class="news-body">Started a research internship at <strong>Aalto University</strong>, Finland. <span class="badge badge-new">new</span></span>
+      </div>
+      <div class="news-item reveal d2">
+        <span class="news-dt">apr 2026</span>
+        <span class="news-body">Presented our poster at <strong>CHI 2026</strong> in Barcelona.</span>
+      </div>
+      <div class="news-item reveal d3">
+        <span class="news-dt">aug 2025</span>
+        <span class="news-body">Joined the <strong>OnCARE Lab</strong> at UIUC, advised by <a href="https://koustuv.com/">Prof. Koustuv Saha</a>.</span>
+      </div>
+      <div class="news-item reveal d4">
+        <span class="news-dt">may 2025</span>
+        <span class="news-body">Graduated from <strong>Michigan State University</strong> with a B.S. in Computer Science and Minor in Cognitive Science.</span>
+      </div>
+      <div class="news-item reveal d5">
+        <span class="news-dt">may 2024</span>
+        <span class="news-body">Started research internship at <strong>Trinity College Dublin</strong>.</span>
+      </div>
+      <div class="news-item reveal d6">
+        <span class="news-dt">may 2022</span>
+        <span class="news-body">Started research internship at <strong>IIT Kharagpur</strong>.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section class="sec" id="publications">
+    <div class="sec-header reveal">
+      <span class="sec-label">publications</span>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="pub-filters reveal d1">
+      <button class="pf-btn active" onclick="filterPubs('all', this)">all (7)</button>
+      <button class="pf-btn" onclick="filterPubs('published', this)">published</button>
+      <button class="pf-btn" onclick="filterPubs('preprint', this)">preprints</button>
+      <button class="pf-btn" onclick="filterPubs('first', this)">first author</button>
+    </div>
+    <div class="pub-list">
+
+      <div class="pub reveal d1" data-status="published" data-first="true">
+        <span class="pub-yr">2026</span>
+        <div>
+          <div class="pub-title">Do We Know What They Know We Know? Calibrating Student Trust in AI and Human Responses Through Mutual Theory of Mind</div>
+          <div class="pub-authors"><strong>Olivia Pal</strong>+, Veda Duddu+, Agam Goyal, Drishti Goel, Koustuv Saha <span style="font-size:0.75em;color:var(--soft)">(+ co-primary)</span></div>
+          <div class="pub-venue">CHI 2026 Extended Abstracts, Poster (38.4% acceptance) <span class="vtag vtag-pub">published</span><span class="vtag vtag-poster">poster</span></div>
+          <div class="pub-links">
+            <a href="https://dl.acm.org/doi/10.1145/3772363.3799386" target="_blank">acm dl</a>
+            <a href="https://arxiv.org/abs/2601.16960" target="_blank">arxiv</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub reveal d2" data-status="preprint" data-first="true">
+        <span class="pub-yr">2026</span>
+        <div>
+          <div class="pub-title">Algorithmic Cultivation: How Social Media Feeds Shape User Language</div>
+          <div class="pub-authors"><strong>Olivia Pal</strong>, Agam Goyal, Eshwar Chandrasekharan, Koustuv Saha</div>
+          <div class="pub-venue">arXiv:2605.17010 <span class="vtag vtag-preprint">preprint</span></div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2605.17010" target="_blank">arxiv</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub reveal d3" data-status="preprint" data-first="true">
+        <span class="pub-yr">2026</span>
+        <div>
+          <div class="pub-title">The Hidden Toll of Social Media News: Causal Effects on Psychosocial Wellbeing</div>
+          <div class="pub-authors"><strong>Olivia Pal</strong>, Agam Goyal, Eshwar Chandrasekharan, Koustuv Saha</div>
+          <div class="pub-venue">arXiv:2601.13487 <span class="vtag vtag-preprint">preprint</span><span class="vtag vtag-review">under review</span></div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2601.13487" target="_blank">arxiv</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub reveal d4" data-status="preprint" data-first="false">
+        <span class="pub-yr">2026</span>
+        <div>
+          <div class="pub-title">Social Simulacra in the Wild: AI Agent Communities on Moltbook</div>
+          <div class="pub-authors">Agam Goyal, <strong>Olivia Pal</strong>, Hari Sundaram, Eshwar Chandrasekharan, Koustuv Saha</div>
+          <div class="pub-venue">arXiv:2603.16128 <span class="vtag vtag-preprint">preprint</span></div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2603.16128" target="_blank">arxiv</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub reveal d5" data-status="preprint" data-first="false">
+        <span class="pub-yr">2026</span>
+        <div>
+          <div class="pub-title">Inform, Coach, Relate, Listen: Auditing LLM Caregiving Support Roles</div>
+          <div class="pub-authors">Drishti Goel, Agam Goyal, Veda Duddu, <strong>Olivia Pal</strong>, Jeongah Lee, Qiuyue Joy Zhong, Violeta J. Rodriguez, Daniel S. Brown, Dong Whi Yoo, Ravi Karkar, Koustuv Saha</div>
+          <div class="pub-venue">arXiv:2605.29473 <span class="vtag vtag-preprint">preprint</span></div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2605.29473" target="_blank">arxiv</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="pub reveal d6" data-status="published" data-first="false">
+        <span class="pub-yr">2025</span>
+        <div>
+          <div class="pub-title">EEG-based Color Classification for Industry 4.0 Applications</div>
+          <div class="pub-authors">M. Mondal, <strong>Olivia Pal</strong>, T. Halder, A. Mukherjee, P. Nayak, S.K. Pal, D. Chakravarty, S. Misra</div>
+          <div class="pub-venue">Digital Manufacturing: Proceedings of AIMTDR 2023, Springer <span class="vtag vtag-pub">published</span></div>
+        </div>
+      </div>
+
+      <div class="pub reveal" data-status="published" data-first="false">
+        <span class="pub-yr">2024</span>
+        <div>
+          <div class="pub-title">An Effective EEG-Based Image Classification Methodology Under Low Data and Resource Requirements Using Machine Learning</div>
+          <div class="pub-authors">A. Banerjee, <strong>Olivia Pal</strong>, M. Mondal, A. Mukherjee, P.P. Chakrabarti, S.K. Pal, S. Misra, D. Chakravarty</div>
+          <div class="pub-venue">IEEE ICCECE 2024, pp. 1-8 <span class="vtag vtag-pub">published</span></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="sec" id="experience">
+    <div class="sec-header reveal">
+      <span class="sec-label">experience</span>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="exp-list">
+
+      <div class="exp-item reveal d1">
+        <button class="exp-trigger" onclick="toggleExp(this)">
+          <span class="exp-yr">2026</span>
+          <span class="exp-dot"></span>
+          <div class="exp-main">
+            <div class="exp-role">Research Intern</div>
+            <div class="exp-org">Aalto University, Espoo, Finland</div>
+          </div>
+          <svg class="exp-chevron" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="exp-body">
+          <div class="exp-desc">HCI and digital wellbeing research. Update with your project details!</div>
+        </div>
+      </div>
+
+      <div class="exp-item open reveal d2">
+        <button class="exp-trigger" onclick="toggleExp(this)">
+          <span class="exp-yr">2025</span>
+          <span class="exp-dot"></span>
+          <div class="exp-main">
+            <div class="exp-role">Graduate Research Assistant</div>
+            <div class="exp-org">University of Illinois Urbana-Champaign, OnCARE Lab</div>
+          </div>
+          <svg class="exp-chevron" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="exp-body">
+          <div class="exp-desc">
+            <ul>
+              <li>Causal analysis of news exposure on mental health across 560,000 social media users using propensity score matching.</li>
+              <li>Qualitative research on AI trust via semi-structured interviews, think-aloud protocols, and the Mutual Theory of Mind framework.</li>
+              <li>Built Socially, an AI-powered Chrome extension for real-time prosocial content moderation.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal d3">
+        <button class="exp-trigger" onclick="toggleExp(this)">
+          <span class="exp-yr">2024</span>
+          <span class="exp-dot"></span>
+          <div class="exp-main">
+            <div class="exp-role">Research Intern, Quantum Computing</div>
+            <div class="exp-org">Trinity College Dublin</div>
+          </div>
+          <svg class="exp-chevron" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="exp-body">
+          <div class="exp-desc">Binary classification using Variational Quantum Classifiers (VQC) with Qiskit Patterns on simulated backends, with emphasis on reproducibility and visualization.</div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal d4">
+        <button class="exp-trigger" onclick="toggleExp(this)">
+          <span class="exp-yr">2022-24</span>
+          <span class="exp-dot"></span>
+          <div class="exp-main">
+            <div class="exp-role">Research Intern, EEG and Manufacturing</div>
+            <div class="exp-org">Indian Institute of Technology Kharagpur</div>
+          </div>
+          <svg class="exp-chevron" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="exp-body">
+          <div class="exp-desc">Designed real-time EEG classification systems for color and image recognition, outperforming CNN baselines in low-data regimes. Published in IEEE ICCECE 2024 and AIMTDR 2023.</div>
+        </div>
+      </div>
+
+      <div class="exp-item reveal d5">
+        <button class="exp-trigger" onclick="toggleExp(this)">
+          <span class="exp-yr">2024-25</span>
+          <span class="exp-dot"></span>
+          <div class="exp-main">
+            <div class="exp-role">Capstone: Robotic Job Coaching App</div>
+            <div class="exp-org">Michigan State University</div>
+          </div>
+          <svg class="exp-chevron" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="exp-body">
+          <div class="exp-desc">Built an iOS app connecting job coaches with cognitively disabled clients, integrating a robotic arm for remote task support. Led front-end and workflow design to enhance user autonomy.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="sec" id="skills">
+    <div class="sec-header reveal">
+      <span class="sec-label">skills</span>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="sk-group reveal d1">
+        <div class="sk-label">research methods</div>
+        <div class="sk-tags">
+          <span class="sk-tag">Propensity Score Matching</span>
+          <span class="sk-tag">Longitudinal Modeling</span>
+          <span class="sk-tag">Semi-structured Interviews</span>
+          <span class="sk-tag">Think-Aloud Protocols</span>
+          <span class="sk-tag">Thematic Analysis</span>
+        </div>
+      </div>
+      <div class="sk-group reveal d2">
+        <div class="sk-label">programming</div>
+        <div class="sk-tags">
+          <span class="sk-tag">Python</span>
+          <span class="sk-tag">C++</span>
+          <span class="sk-tag">Swift</span>
+          <span class="sk-tag">MATLAB</span>
+          <span class="sk-tag">SQL, HTML, CSS, Git</span>
+        </div>
+      </div>
+      <div class="sk-group reveal d3">
+        <div class="sk-label">ml and libraries</div>
+        <div class="sk-tags">
+          <span class="sk-tag">PyTorch</span>
+          <span class="sk-tag">Scikit-learn</span>
+          <span class="sk-tag">HuggingFace Transformers</span>
+          <span class="sk-tag">Pandas, NumPy</span>
+          <span class="sk-tag">Qiskit, EEGLAB, FastAPI</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEYOND RESEARCH -->
+  <section class="sec" id="beyond">
+    <div class="sec-header reveal">
+      <span class="sec-label">beyond research</span>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="beyond-grid reveal d1">
+
+      <div class="beyond-card">
+        <div class="beyond-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="none" fill="var(--amber-pale)"/><path d="M15 11H9m6 4H9M8 7h8a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/></svg>
+        </div>
+        <div class="beyond-label">cooking</div>
+        <div class="beyond-desc">Always experimenting in the kitchen. Trying to perfect the art of cooking without a recipe.</div>
+      </div>
+
+      <div class="beyond-card">
+        <div class="beyond-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <div class="beyond-label">reading</div>
+        <div class="beyond-desc">Fiction, nonfiction, anything that makes me think differently. Always have a book on the go.</div>
+      </div>
+
+      <div class="beyond-card">
+        <div class="beyond-icon">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="beyond-label">tv shows</div>
+        <div class="beyond-desc">Big fan of a good story. Always open to recommendations and will happily talk about shows for hours.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="sec" id="contact">
+    <div class="sec-header reveal">
+      <span class="sec-label">contact</span>
+      <div class="sec-rule"></div>
+    </div>
+    <div class="contact-wrap reveal d1">
+      <p class="contact-bio">Always happy to chat about research, collaborations, or anything at the intersection of technology and wellbeing. Feel free to reach out!</p>
+      <div class="contact-links">
+        <a href="mailto:opal2@illinois.edu" class="clink primary">
+          <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          opal2@illinois.edu
+        </a>
+        <a href="https://scholar.google.com/citations?user=HpQNmoYAAAAJ&hl=en" target="_blank" class="clink">google scholar</a>
+        <a href="https://github.com/oliviapal" target="_blank" class="clink">github</a>
+        <a href="https://www.linkedin.com/in/olivia-pal" target="_blank" class="clink">linkedin</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  olivia pal · uiuc cs · <span>oliviapal.com</span> · updated june 2026
+  <br>
+  <span style="font-size:0.6rem;opacity:0.6;margin-top:0.4rem;display:block">vibe coded with Claude</span>
+</footer>
+
+<script>
+// Reveal on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.07, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Trigger above-fold immediately
+setTimeout(() => {
+  document.querySelectorAll('.hero-wrap .reveal, .affil-strip .reveal').forEach(el => el.classList.add('in'));
+}, 60);
+
+// Nav shadow
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), { passive: true });
+
+// Accordion
+function toggleExp(btn) {
+  const item = btn.closest('.exp-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.exp-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Publication filter
+function filterPubs(type, btn) {
+  document.querySelectorAll('.pf-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.pub').forEach(pub => {
+    if (type === 'all') pub.classList.remove('hidden');
+    else if (type === 'published') pub.classList.toggle('hidden', pub.dataset.status !== 'published');
+    else if (type === 'preprint') pub.classList.toggle('hidden', pub.dataset.status !== 'preprint');
+    else if (type === 'first') pub.classList.toggle('hidden', pub.dataset.first !== 'true');
+  });
+}
+</script>
+</body>
+</html>
