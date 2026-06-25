@@ -568,7 +568,6 @@ footer span { color: var(--sage); }
 <div class="hero-wrap">
   <div class="hero">
     <div>
-      <p class="hero-eyebrow reveal">phd student · computer science · uiuc</p>
       <h1 class="hero-name reveal d1">Olivia Pal</h1>
       <p class="hero-bio reveal d2">
         Hey! I'm Olivia, a first-year CS PhD student at the
@@ -604,22 +603,22 @@ footer span { color: var(--sage); }
     <div class="affil-item reveal d1">
       <span class="affil-role">Ph.D. Student, Computer Science</span>
       <span class="affil-org">UIUC</span>
-      <span class="affil-date">Aug 2025 — present</span>
+      <span class="affil-date">Aug 2025 to present</span>
     </div>
     <div class="affil-item reveal d2">
       <span class="affil-role">Research Intern</span>
       <span class="affil-org">Aalto University</span>
-      <span class="affil-date">May 2026 — present</span>
+      <span class="affil-date">May 2026 to present</span>
     </div>
     <div class="affil-item reveal d3">
       <span class="affil-role">Research Intern</span>
       <span class="affil-org">Trinity College Dublin</span>
-      <span class="affil-date">May 2024 — Jul 2024</span>
+      <span class="affil-date">May 2024 to Jul 2024</span>
     </div>
     <div class="affil-item reveal d4">
       <span class="affil-role">Research Intern</span>
       <span class="affil-org">IIT Kharagpur</span>
-      <span class="affil-date">May 2022 — Apr 2024</span>
+      <span class="affil-date">May 2022 to Apr 2024</span>
     </div>
     <div class="affil-item reveal d5">
       <span class="affil-role">B.S. Computer Science</span>
@@ -922,28 +921,40 @@ footer span { color: var(--sage); }
     </div>
     <div class="beyond-grid reveal d1">
 
-      <div class="beyond-card">
+      <a href="https://www.goodreads.com/user/show/197831566-olivia-pal" target="_blank" class="beyond-card" style="text-decoration:none;display:block;">
         <div class="beyond-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" stroke="none" fill="var(--amber-pale)"/><path d="M15 11H9m6 4H9M8 7h8a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/></svg>
-        </div>
-        <div class="beyond-label">cooking</div>
-        <div class="beyond-desc">Always experimenting in the kitchen. Trying to perfect the art of cooking without a recipe.</div>
-      </div>
-
-      <div class="beyond-card">
-        <div class="beyond-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15 11H9m6 4H9M8 7h8a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1z"/></svg>
         </div>
         <div class="beyond-label">reading</div>
-        <div class="beyond-desc">Fiction, nonfiction, anything that makes me think differently. Always have a book on the go.</div>
-      </div>
+        <div class="beyond-desc">Always down to read some good books, feel free to send recommendations my way!</div>
+      </a>
 
-      <div class="beyond-card">
+      <a href="food.html" class="beyond-card" style="text-decoration:none;display:block;">
         <div class="beyond-icon">
-          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6h3.5a1.5 1.5 0 0 1 0 3H16v4"/></svg>
         </div>
-        <div class="beyond-label">tv shows</div>
-        <div class="beyond-desc">Big fan of a good story. Always open to recommendations and will happily talk about shows for hours.</div>
+        <div class="beyond-label">food</div>
+        <div class="beyond-desc">Trying to recreate TikTok and YouTube recipes with varying degrees of success.</div>
+      </a>
+
+      <div class="beyond-card" onclick="toggleShows(this)" style="cursor:pointer;">
+        <div style="display:flex;align-items:center;justify-content:space-between;">
+          <div>
+            <div class="beyond-icon">
+              <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <div class="beyond-label">tv and movies</div>
+            <div class="beyond-desc">Always down to talk about a good show, send recs, always looking for the next one.</div>
+          </div>
+          <svg class="shows-chevron" width="16" height="16" fill="none" stroke="var(--soft)" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink:0;margin-left:1rem;transition:transform 0.35s cubic-bezier(0.22,1,0.36,1)"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="shows-body" style="max-height:0;overflow:hidden;transition:max-height 0.4s cubic-bezier(0.22,1,0.36,1),padding 0.3s;">
+          <div style="padding-top:1.25rem;border-top:1px solid var(--rule);margin-top:1.25rem;text-align:center;">
+            <div style="font-size:1.8rem;margin-bottom:0.5rem;">🎬</div>
+            <div style="font-family:'DM Mono',monospace;font-size:0.67rem;color:var(--sage-dark);letter-spacing:0.04em;">under construction</div>
+            <div style="font-size:0.85rem;color:var(--soft);margin-top:0.35rem;">rankings coming soon!</div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -1006,7 +1017,15 @@ function toggleExp(btn) {
   if (!isOpen) item.classList.add('open');
 }
 
-// Publication filter
+// TV shows dropdown
+function toggleShows(card) {
+  const body = card.querySelector('.shows-body');
+  const chevron = card.querySelector('.shows-chevron');
+  const isOpen = body.style.maxHeight !== '0px' && body.style.maxHeight !== '';
+  body.style.maxHeight = isOpen ? '0px' : '200px';
+  chevron.style.transform = isOpen ? '' : 'rotate(180deg)';
+}
+
 function filterPubs(type, btn) {
   document.querySelectorAll('.pf-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');

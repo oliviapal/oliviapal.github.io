@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food - Olivia Pal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400&family=Newsreader:ital,opsz,wght@0,6..72,300;1,6..72,300&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --sage:      #6b8f71;
+  --sage-dark: #3d5c42;
+  --sage-pale: #eaf2eb;
+  --sage-wash: #f2f7f3;
+  --rule:      #e8e8e4;
+  --ink:       #1a1a1a;
+  --mid:       #4a4a4a;
+  --soft:      #909090;
+  --white:     #ffffff;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--ink);
+  font-size: 15.5px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+nav {
+  border-bottom: 1px solid var(--rule);
+  padding: 0 2.5rem;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-name {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--ink);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.nav-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--sage);
+}
+.nav-back {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.71rem;
+  color: var(--soft);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: color 0.15s;
+}
+.nav-back:hover { color: var(--ink); }
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2.5rem;
+  text-align: center;
+}
+.emoji { font-size: 3rem; margin-bottom: 1.5rem; }
+h1 {
+  font-family: 'Newsreader', serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+.sub {
+  font-size: 0.95rem;
+  color: var(--mid);
+  max-width: 380px;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+.tag {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.67rem;
+  color: var(--sage-dark);
+  background: var(--sage-pale);
+  border: 1.5px solid #a8c9ae;
+  padding: 0.3rem 0.85rem;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+}
+footer {
+  border-top: 1px solid var(--rule);
+  text-align: center;
+  padding: 1.5rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--soft);
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-name">
+    <span class="nav-dot"></span>
+    olivia pal
+  </a>
+  <a href="index.html" class="nav-back">
+    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    back
+  </a>
+</nav>
+
+<div class="main">
+  <div class="emoji">🍳</div>
+  <h1>under construction</h1>
+  <p class="sub">Documenting recipes I've tried from TikTok and YouTube. Check back soon!</p>
+  <span class="tag">coming soon</span>
+</div>
+
+<footer>olivia pal · oliviapal.com</footer>
+
+</body>
+</html>
